@@ -1,5 +1,5 @@
 <?php if(!is_user_logged_in()){
-	header("Location: http://horizonindy.org/youth/updates/index.php");
+	header("Location: http://horizonindy.org/hcs/");
 	die();
 } ?>
 <!DOCTYPE html>

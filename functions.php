@@ -52,8 +52,13 @@ class Walker_TopNav_Menu extends Walker {
 
 
 // This generates the top nav dropdowns.
-$topnav_dropdown_desc_values = simple_fields_fieldgroup('topnav_dropdown_desc',512);
-$topnav_dropdown_desc_values_defaults = simple_fields_fieldgroup('topnav_dropdown_desc_default',512);
+
+if (function_exists('simple_fields_fieldgroup')) {
+	$topnav_dropdown_desc_values = simple_fields_fieldgroup('topnav_dropdown_desc',512);
+	$topnav_dropdown_desc_values_defaults = simple_fields_fieldgroup('topnav_dropdown_desc_default',512);
+} else {
+	$topnav_dropdown_desc_values = $topnav_dropdown_desc_values_defaults = 0;
+}
 class Walker_TopNavDropDowns_Menu extends Walker {
     // Tell Walker where to inherit it's parent and id values
     var $db_fields = array(
@@ -71,7 +76,7 @@ class Walker_TopNavDropDowns_Menu extends Walker {
 			\n<ul class='w-list-unstyled dropdown-list'>",
 			$subnaviditeration);
 		}
-		parent::start_lvl(&$output, $depth,$args); // runs the start_lvl function in the parent class (Walker)
+		parent::start_lvl($output, $depth,$args); // runs the start_lvl function in the parent class (Walker)
 	}
 	function end_lvl(&$output, $depth=0, $args=array()) {
 		global $subnaviditeration;
@@ -100,7 +105,7 @@ class Walker_TopNavDropDowns_Menu extends Walker {
 		// Increments subnaviditeration so that the next button triggers the next w.row
 		$subnaviditeration ++;
 		//I'm not sure what this does, but it was in the code I copied and I don't want to break it. :)
-		parent::end_lvl(&$output, $depth,$args);
+		parent::end_lvl($output, $depth,$args);
 	}
     function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 		if( 0 == $depth )
@@ -145,25 +150,25 @@ class Sidebar_Nav extends Walker_Nav_Menu {
     function start_lvl(&$output, $depth=0, $args=array()) {
         if( 0 == $depth )
             return;
-        parent::start_lvl(&$output, $depth,$args);
+        parent::start_lvl($output, $depth,$args);
 		// parent::start_lvl() means run the start_lvl() function from the extended class (Walker_Nav_Menu)
     }
     // Don't end the top level
     function end_lvl(&$output, $depth=0, $args=array()) {
         if( 0 == $depth )
             return;
-        parent::end_lvl(&$output, $depth,$args);
+        parent::end_lvl($output, $depth,$args);
     }
     // Don't print top-level elements
     function start_el(&$output, $item, $depth=0, $args=array()) {
 		if( 0 == $depth )
 			return;
-		parent::start_el(&$output, $item, $depth, $args);
+		parent::start_el($output, $item, $depth, $args);
     }
     function end_el(&$output, $item, $depth=0, $args=array()) {
         if( 0 == $depth )
             return;
-        parent::end_el(&$output, $item, $depth, $args);
+        parent::end_el($output, $item, $depth, $args);
     }
     // Only follow down one branch
     function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
@@ -175,7 +180,7 @@ class Sidebar_Nav extends Walker_Nav_Menu {
         // If this is a top-level link and not the current, or ancestor of the current menu item - stop here.
         if ( 0 == $depth && !$ancestor_of_current)
             return;
-        parent::display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output );
+        parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
     }
 }
 
@@ -202,24 +207,26 @@ function find_menu_page_please_ok_thanks($needle,$haystack) {
 	// We are going to look through every page in that menu (every $haystack) for the current one.
 	// $listitemnumber isn't really relevant. (It's the position in line we're at going down the menu.)
 	// $listitemobject is the page in that position with its details, like page id, page parent, etc
-    foreach($haystack as $listitemnumber=>$listitemobject) {
-		// We want to search for the current page based on its WordPress ID
-		$value = $listitemobject->object_id;
-		// If we found the current page
-		if($needle==$value) {
-			// If the current page has a parent
-			if ($listitemobject->post_parent) {
-				// Run the search again with the parent, causing a loop that runs until we're at the highest page
-				find_menu_page_please_ok_thanks($listitemobject->post_parent, $haystack, $return);
-			} else {
-			// If the current page has no parent, we're there. Return the page with its info.
-				$return = $listitemobject;
-				return $return;
+	if ($haystack){
+		foreach($haystack as $listitemnumber=>$listitemobject) {
+			// We want to search for the current page based on its WordPress ID
+			$value = $listitemobject->object_id;
+			// If we found the current page
+			if($needle==$value) {
+				// If the current page has a parent
+				if ($listitemobject->post_parent) {
+					// Run the search again with the parent, causing a loop that runs until we're at the highest page
+					find_menu_page_please_ok_thanks($listitemobject->post_parent, $haystack, $return);
+				} else {
+				// If the current page has no parent, we're there. Return the page with its info.
+					$return = $listitemobject;
+					return $return;
+				}
+				// This part is looped; if we have a return value, we want to return it and stop the loop.
+				if ($return) return $return;
 			}
-			// This part is looped; if we have a return value, we want to return it and stop the loop.
-			if ($return) return $return;
 		}
-    }
+	}
 }
 
 function get_string_between($string, $start, $end){
@@ -238,11 +245,6 @@ function str_replace_nth($search, $replace, $subject, $nth) {
     }
     return $subject;
 }
-
-//$fullstring = "this is my [tag]dog[/tag]";
-//$parsed = get_string_between($fullstring, "[tag]", "[/tag]");
-
-echo $parsed; // (result = dog)
 
 function printPre($value){
 	ob_start();
