@@ -1,0 +1,29 @@
+body#tinymce {
+	font-family: Open Sans, san-serif;
+}
+span.subheading {
+	text-transform: uppercase;
+    font-weight: 800;
+    background-color: #ABABAB;
+    padding: 0 7px;
+    color: white;
+    margin-right: 5px;
+    border-radius: 2px;
+    font-size: 14px;
+}
+blockquote {
+    padding: 0 20px;
+	margin: 20px 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    border-left: 2px solid #117643;
+}
+blockquote p {
+	font-weight: 600;
+    font-size: 18px;
+    line-height: 26px;
+    color: #d4af37;
+    color: #117643;
+    padding: 20px;
+}

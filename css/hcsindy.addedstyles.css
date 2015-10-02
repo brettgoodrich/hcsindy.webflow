@@ -1,0 +1,331 @@
+.homepage {
+	background-color: #f7f7f7;
+}
+#menu-top {
+	list-style:none;
+	padding:0;
+}
+.list-item-h4 a {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+}
+.navbar-container {
+	padding: 0 10px;
+}
+.w-nav-overlay {
+	background-color: #f7f7f7;
+	background-color: rgba(0,0,0,0.9);
+}
+.webflow-navbar-menu li {
+    display: block;
+    list-style-type: none;
+}
+.header-logo-col a {
+	margin: 0 -10px;
+}
+.header-logo-col a:hover img,
+.w-nav-brand:active,
+.hero-type-box a:hover {
+    background-color: #b48a00;
+}
+.header-logo-col a:active img,
+.hero-type-box a:active {
+    background-color: #533f00;
+}
+.dropdown {
+	display:none;
+}
+.dropdown-list a:active {
+    background-color: #b48a00;
+}
+.content-nosidebar {
+	padding:20px 20px 40px;
+}
+.content-leftcol {
+	padding: 0 30px 0 20px;
+}
+.content-rightcol {
+	padding: 0 20px 0 30px;
+}
+.hero-type-box a {
+	color:white;
+}
+.hero-type-box img {
+	max-height: 10px;
+    display: inline;
+    vertical-align: initial;
+}
+.page-sidebar {
+    background-color: #f7f7f7;
+    padding: 25px 10px 40px 20px;
+}
+.page-sidebar .w-row {
+	padding-right:20px;
+/*    border-right: 1px solid rgba(212, 175, 55, 0.49); */
+}
+.page-sidebar .w-row p {
+    font-size: 14px;
+    line-height: 20px;
+}
+.page-sidebar img, .content-nosidebar img {
+	height: auto;
+}
+.divider.spaceonly {
+	border:0;
+}
+
+.dates2-row {
+  margin-right: 0;
+  margin-left: 0;
+  padding-right: 10px;
+  padding-left: 10px;
+  background-color: #d4af37;
+  color: rgba(255, 255, 255, 0.71);
+/*  display:flex;*/
+}
+.gce-page-list-503 {
+/*	flex:19; */
+}
+.dates2-row a {
+	color:inherit;
+}
+.dates2-col {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  background-color: #d4af37;
+}
+.dates2-col.right {
+  border-right: none;
+}
+.dates2-item-txt {
+  padding-left: 15px;
+}
+.dates2-item-txt.v2 {
+  padding-left: 10px;
+}
+.dates2-item-h {
+  margin-top: 0px;
+  margin-bottom: 3px;
+  line-height: 20px;
+  color:white;
+}
+.dates2-item-h.v2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 8px;
+}
+.dates2-timehighlight {
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 3px 10px;
+  border-radius: 5px;
+  background-color: white;
+  color: #d4af37;
+  font-size: 13px;
+  line-height: 10px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.dates2-timehighlight.v2 {
+  margin-top: 10px;
+}
+.dates2-timehighlight-container {
+  display: block;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-left: auto;
+  float: none;
+  text-align: center;
+}
+.dates2-item-p {
+  margin-bottom: 5px;
+}
+.dates2-item-p.v2 {
+  margin-top: 0px;
+  margin-left: 8px;
+}
+.dates2-seemore {
+  margin-top: 43px;
+  font-size: 35px;
+  line-height: 1px;
+  text-align: center;
+}
+.dates2-arrow {
+	max-height: 100px;
+	overflow: hidden;
+	padding: 0;
+	/*flex:1;*/
+}
+.dates2-arrow a {
+	padding-top: 30px;
+	padding-bottom: 999px;
+	display: block;
+	text-decoration:none;
+}
+.dates2-arrow img {
+	display: block;
+	max-width: 45px;
+	margin: 0 auto;
+	padding: 10px;
+	border-radius:999px;
+	background:none;
+}
+.dates2-arrow span {
+	color: white;
+}
+.dates2-arrow a:hover img {
+	background-color:#b48a00;
+}
+.dates2-arrow a:active img {
+    background-color: #533f00;
+}
+
+.gce-day-eventblobs {
+    position: absolute;
+    top: 0;
+    left: 3px;
+}
+.gce-day-eventblob {
+    background-color: #d4af37;
+    height: 10px;
+    width: 10px;
+    float: left;
+    border-radius: 99px;
+    margin: 3px 1px;
+	display:none;
+}
+.gce-day-future,
+.gce-today {
+	position:relative;
+}
+.gce-has-events .gce-day-eventblob {
+	display:block;
+}
+.gce-day-past .gce-day-eventblob {
+	display:none;
+}
+.gce-has-4-events .gce-day-eventblob-1 {
+	display:none;
+}
+.gce-has-3-events .gce-day-eventblob-2,
+.gce-has-3-events .gce-day-eventblob-1 {
+	display:none;
+}
+.gce-has-2-events .gce-day-eventblob-3,
+.gce-has-2-events .gce-day-eventblob-2,
+.gce-has-2-events .gce-day-eventblob-1 {
+	display:none;
+}
+.gce-has-1-events .gce-day-eventblob-4,
+.gce-has-1-events .gce-day-eventblob-3,
+.gce-has-1-events .gce-day-eventblob-2,
+.gce-has-1-events .gce-day-eventblob-1 {
+	display:none;
+}
+blockquote {
+    padding: 0 20px;
+	margin: 20px 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    border-left: 2px solid #117643;
+}
+blockquote p {
+	font-weight: 600;
+    font-size: 18px;
+    line-height: 26px;
+    color: #d4af37;
+    color: #117643;
+    padding: 20px;
+}
+span.subheading {
+	text-transform: uppercase;
+    font-weight: 800;
+    background-color: #ABABAB;
+    padding: 0 7px;
+    color: white;
+    margin-right: 5px;
+    border-radius: 2px;
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+	.content > .w-row {
+		display:flex;
+	}
+}
+
+/* Phone Only */
+@media screen and (max-width: 767px) {
+	.dates2-arrow span,
+	.dates2-arrow img {
+		display:inline-block;
+	}
+	.dates2-arrow a {
+		text-align: center;
+		padding: 0;
+		margin: 0 30px 20px;
+		border: 2px solid white;
+	}
+	.dates2-arrow a:hover img,
+	.dates2-arrow a:active img {
+		background-color:transparent;
+	}
+	.dates2-arrow a:hover {
+		background-color:#b48a00;
+	}
+	.dates2-arrow a:active{
+		background-color: #533f00;
+	}
+	.dates2-arrow img {
+		margin-left: -9px;
+		max-width: 35px;
+	}
+	.page-sidebar {
+		/*background-color:transparent;*/
+		padding: 0 20px 0 30px;
+	}
+	.dropdown-list.leftmenu {
+    	margin-bottom: 0px;
+    	padding-bottom: 15px;
+	}
+	.content {
+		padding-left:0;
+		padding-right:0;
+	}
+	.content-paragraphs {
+		padding-left:20px;
+		padding-right:20px;
+	}
+	blockquote {
+		padding:0;
+		margin:20px 10px;
+	}
+	blockquote p {
+		padding:10px 20px;
+	}
+}
+@media screen and (max-width: 479px) {
+	.navbar-container {
+		padding:0;
+	}
+} /* end media query */
+
+/* For debug */
+.dropdown {
+	opacity:100 !important;
+}
+
+#wpadminbar {
+	display:none;
+}
+html {
+	margin-top: 0 !important;
+}
+/* End debug */
